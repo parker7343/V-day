@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>my valntine</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: #0b0b1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  button {
+    padding: 16px 34px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background: #ff4d6d;
+    color: white;
+    z-index: 10;
+  }
+
+  .firework {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    animation: explode 1s ease-out forwards;
+  }
+
+  .cel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 5;
+  }
+
+  .pht {
+    border-radius: 10px;
+  }
+
+  h1 {
+    margin-bottom: 10px;
+    color: #ff4d6d;
+  }
+
+  @keyframes explode {
+    from {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+    to {
+      transform: translate(var(--x), var(--y));
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="cel">
+  <h1>YIPPIEE!!!!</h1>
+  <img src="/cple.jpg" alt="" width="400" height="450" class="pht">
+  <button onclick="startFireworks(5000)">🎆 Click fast</button>
+</div>
+
+<script>
+function createFirework(x, y) {
+  const colors = ["#ffbe0b", "#fb5607", "#ff006e", "#8338ec", "#3a86ff"];
+  const particles = 25;
+
+  for (let i = 0; i < particles; i++) {
+    const fw = document.createElement("div");
+    fw.className = "firework";
+
+    fw.style.background = colors[Math.floor(Math.random() * colors.length)];
+    fw.style.left = x + "px";
+    fw.style.top = y + "px";
+
+    fw.style.setProperty("--x", (Math.random() - 0.5) * 400 + "px");
+    fw.style.setProperty("--y", (Math.random() - 0.5) * 400 + "px");
+
+    document.body.appendChild(fw);
+    setTimeout(() => fw.remove(), 1000);
+  }
+}
+
+function startFireworks(duration = 5000) {
+  const intervalTime = 400;
+
+  const interval = setInterval(() => {
+    const x = Math.random() * window.innerWidth;
+    const y = Math.random() * window.innerHeight;
+    createFirework(x, y);
+  }, intervalTime);
+
+  setTimeout(() => clearInterval(interval), duration);
+}
+
+// 🎆 Auto fireworks when page loads (5 seconds)
+window.onload = () => {
+  startFireworks(5000);
+};
+</script>
+
+</body>
+</html>

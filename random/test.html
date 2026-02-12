@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>valentines day</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f5f5f5;
+            overflow: hidden;
+        }
+
+        #noBtn {
+           position:absolute;
+            padding: 12px 25px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.2s;
+            border: solid 1px  rgb(215, 204, 208);
+            border-radius: 10px;
+        }
+        button{
+            padding: 12px 25px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.2s; 
+            border: solid 1px  rgb(215, 204, 208);
+            border-radius: 10px;
+            background-color:  rgb(215, 204, 208);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+
+        }
+        .btnn{
+            display: flex;
+            justify-content: center;
+            padding-right: 70px;
+            gap: 20px;
+            margin-top: 20px;
+    
+
+        }
+        body{
+            background-color: palevioletred;
+        }
+        .bdy{
+            width: 100%;
+        }
+        .photo{
+            display: flex;
+            justify-content: center;
+        }
+        .pht{
+            border-radius: 20px;
+              box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        .text{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .umm{
+            font-size: 25px;
+            color: rgb(215, 204, 208);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1{
+            color: rgb(215, 204, 208);
+            font-size: 50px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+
+<div class="bdy">
+    <div class="text">
+        <h1>WILL YOU BE SHALU'S VALANTINE?</h1>
+        <label  class="umm" id="sayyes">Meow</label>  
+    </div>
+    <div class="photo">
+        <img src="/a996754e4c4f72de83c608e926569d04.jpg"  alt=""  width="400px" height="450px" class="pht" id="hehe">
+    </div>
+
+    <div class="btnn">
+        <div>
+            <a href="/yes.html">
+            <button id="ysbtn">YES</button>
+
+            </a>
+        </div>
+        <div>
+            <button id="noBtn">NO</button>
+        </div>
+         
+         
+    </div>
+
+</div>
+
+
+
+
+
+<script>
+    const ys = document.getElementById("sayyes")
+    const img = document.getElementById("hehe");
+    const btn = document.getElementById("noBtn");
+    const yss = document.getElementById("ysbtn");
+
+
+    btn.addEventListener("mouseover", () => {
+        const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+        const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+
+        btn.style.left = x + "px";
+        btn.style.top = y + "px";
+
+        img.src="muhehe.jpg";
+        ys.innerHTML="say yes bitch!!!!";
+
+    });
+    yss.addEventListener("mouseover",() => {
+        img.src="shalu.jpeg";
+        ys.innerHTML="MUHAHAHAHAHAHA";
+
+    })
+</script>
+
+</body>
+</html>
